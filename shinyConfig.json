@@ -1,0 +1,11 @@
+{
+    "token":"",
+    "outputChannel":"",
+    "sqlConnection": {
+        "host": "",
+        "user": "",
+        "password": "",
+        "database": ""
+    },
+    "runTime":"22:00:00"
+}
