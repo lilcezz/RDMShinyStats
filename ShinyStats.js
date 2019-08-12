@@ -60,7 +60,10 @@ async function CalculateShinyStats(database, channel)
 
 			let pokemonName = pokemonNames[pokemonStats[pokemon].pokemon_id].name;
 
-			await bot.channels.get(channel).send("**"+pokemonName+"**  |  **"+pokemonStats[pokemon].shiny+"** shiny out of **"+pokemonStats[pokemon].total+"** total seen in the last 24 hours");			
+			let ratio = pokemonStats[pokemon].shiny === 0 || pokemonStats[pokemon].total === 0 ? "" : " with a **1/" + (pokemonStats[pokemon].total / pokemonStats[pokemon].shiny).toFixed() + "** ratio";
+
+			await bot.channels.get(channel).send("**"+pokemonName+"**  |  **"+pokemonStats[pokemon].shiny+"** shiny out of **"+pokemonStats[pokemon].total+"** total seen in the last 24 hours" + ratio);    
+				
 		}
 
 		connection.end();
